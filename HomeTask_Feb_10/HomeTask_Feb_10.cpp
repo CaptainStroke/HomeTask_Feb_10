@@ -33,8 +33,61 @@
 //}
 
 
-//2. Даны 2 массива размерности M и N соответственно.Необходимо переписать в третий массив общие элементы
+//2. Даны 2 массива размерности M и N соответственно. Необходимо переписать в третий массив общие элементы
 //первых двух массивов, без повторений.
+
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 50;
+//	const int KING = 100;
+//	int ar[SIZE];
+//	int br[SIZE];
+//	int j = 0;
+//	int l = 0;
+//	int cr[KING];
+//	cout << "Original array M\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		ar[i] = rand() % 100;
+//		cout << ar[i] << ", ";
+//	}
+//	cout << "\nOriginal array N\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		br[i] = rand() % 100;
+//		cout << br[i] << ", ";
+//	}
+//	cout << "\nCombined in one array Z\n";
+//	for (int i = 0; i < KING; i++)
+//	{
+//		if (i % 2 == 0) cr[i] = ar[j], j++;
+//		if (i % 2 != 0) cr[i] = br[l], l++;
+//		cout << cr[i] << ", ";
+//	}
+//	cout << "\nSorted\n";
+//	sort(cr, cr + KING);
+//	for (int i = 0; i < KING; i++)
+//	{
+//		cout << cr[i] << ", ";
+//	}
+//	cout << "\nCopies turned in \"  100s\" \n";
+//	for (int i = 0; i < KING; i++)
+//	{
+//		if (cr[i] == cr[i - 1]) cr[i] = 100;
+//		cout << cr[i] << ", ";
+//	}
+//	cout << "\nCopies removed to end and turned to \" -1\"\n";
+//	sort(cr, cr + KING);
+//	for (int i = 0; i < KING; i++)
+//	{
+//		if (cr[i] == 100) cr[i] = - 1;
+//		cout << cr[i] << ", ";
+//	}
+//	cout << "\n";
+//}
 
 //3. Даны 2 массива размерности M и N соответственно.Необходимо переписать в третий массив те элементы
 //первого массива, которых нет во втором массиве, без повторений.
