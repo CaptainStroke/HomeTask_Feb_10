@@ -42,7 +42,6 @@ using namespace std;
 int main()
 {
 	const int SIZE = 50;
-	const int KING = 100;
 	int ar[SIZE];
 	int br[SIZE];
 	int j = 0;
@@ -66,7 +65,6 @@ int main()
 		for (int j = 0; j < SIZE; j++)
 		{
 			if (ar[i] == br[j]) cr[i] = ar[i];
-			else if (ar[i] != br[j]);
 		}
 		cout << cr[i] << ", ";
 	}
@@ -76,9 +74,8 @@ int main()
 		if (cr[i] < -2 || cr[i] > 101) cr[i] = 101;
 		cout << cr[i] << ", ";
 	}
-	cout << "\nArray groomed\n";
-	sort(cr, cr + SIZE);
-
+	    cout << "\nArray groomed\n";
+		sort(cr, cr + SIZE);
 		for (int i = 0; i < SIZE; i++)
 	{
 		if (cr[i] == cr[i - 1]) cr[i] = 101; 
@@ -155,6 +152,26 @@ int main()
 // с клавиатуры.Назначить призы за совпадения.Например, если пользователь угадал три числа - приз 100 кредитов,
 //если 4 - 500 кредитов, если 5 – 2500 кредитов.И в целом, какова вероятность того, что пользователь угадает
 //все 5 чисел ?
+
+//#include <iostream>
+//#include <algorithm>
+//#include <ctime>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 5;
+//	int lot[SIZE];
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		cin >> lot[i];
+//		sort(lot, lot + SIZE);
+//		if (lot[i] == lot[i - 1]);
+//		
+//
+//		cout << lot[i] << "' ";
+//	}
+//
+//}
 
 //5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
 //Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
