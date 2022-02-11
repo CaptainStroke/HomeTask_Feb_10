@@ -36,6 +36,67 @@
 //2. Даны 2 массива размерности M и N соответственно. Необходимо переписать в третий массив общие элементы
 //первых двух массивов, без повторений.
 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	const int SIZE = 50;
+	const int KING = 100;
+	int ar[SIZE];
+	int br[SIZE];
+	int j = 0;
+	int l = 0;
+	int cr[SIZE];
+	cout << "Original array M\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		ar[i] = rand() % 100;
+		cout << ar[i] << ", ";
+	}
+	cout << "\nOriginal array N\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		br[i] = rand() % 100;
+		cout << br[i] << ", ";
+	}
+	cout << "\nCombined in one array Z\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+		{
+			if (ar[i] == br[j]) cr[i] = ar[i];
+			else if (ar[i] != br[j]);
+		}
+		cout << cr[i] << ", ";
+	}
+	cout << "\n Doubles sorted\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (cr[i] < -2 || cr[i] > 101) cr[i] = 101;
+		cout << cr[i] << ", ";
+	}
+	cout << "\nArray groomed\n";
+	sort(cr, cr + SIZE);
+
+		for (int i = 0; i < SIZE; i++)
+	{
+		if (cr[i] == cr[i - 1]) cr[i] = 101; 
+		cout << cr[i] << ", ";
+	}
+		cout << "\n Final touch\n";
+		sort(cr, cr + SIZE);
+		for (int i = 0; i < SIZE; i++)
+		{
+			if (cr[i] < -2 || cr[i] >= 101) cr[i] = -1;
+			cout << cr[i] << ", ";
+		}
+		cout << "\n";
+}
+
+//3. Даны 2 массива размерности M и N соответственно.Необходимо переписать в третий массив те элементы
+//первого массива, которых нет во втором массиве, без повторений.
+
 //#include <iostream>
 //#include <algorithm>
 //using namespace std;
@@ -83,14 +144,11 @@
 //	sort(cr, cr + KING);
 //	for (int i = 0; i < KING; i++)
 //	{
-//		if (cr[i] == 100) cr[i] = - 1;
+//		if (cr[i] == 100) cr[i] = -1;
 //		cout << cr[i] << ", ";
 //	}
 //	cout << "\n";
 //}
-
-//3. Даны 2 массива размерности M и N соответственно.Необходимо переписать в третий массив те элементы
-//первого массива, которых нет во втором массиве, без повторений.
 
 //4. Реализовать программу - лотерею. Программа загадывает 5 случайных неповторяющихся чисел в диапазоне
 //от 1 до 42, но не показывает их на экран.Пользователь пытается их угадать – вводит какие - то свои 5 чисел
