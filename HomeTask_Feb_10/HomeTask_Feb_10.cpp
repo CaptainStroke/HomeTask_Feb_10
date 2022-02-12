@@ -94,70 +94,68 @@
 //3. Даны 2 массива размерности M и N соответственно.Необходимо переписать в третий массив те элементы
 //первого массива, которых нет во втором массиве, без повторений.
 
-#include <iostream>
-#include <algorithm>
-using namespace std;
-int main()
-{
-	const int SIZE = 50;
-	const int KING = 100;
-	int ar[SIZE];
-	int br[SIZE];
-	int i = 0;
-	int j = 0;
-	int l = 0;
-	int cr[SIZE];
-	cout << "Original array M\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		ar[i] = rand() % 100;
-		cout << ar[i] << ", ";
-	}
-	cout << "\nOriginal N\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		br[i] = rand() % 100;
-		cout << br[i] << ", ";
-	}
-	sort(ar, ar + SIZE);
-	cout << "\nSorted array M\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << ar[i] << ", ";
-	}
-	sort(br, br + SIZE);
-	cout << "\nSorted array N\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << br[i] << ", ";
-	}
-
-	cout << "\nCombined in one array Z\n";
-	for (int i = 0; i < SIZE; i++)
-			for (int j = 0; j < SIZE; j++)
-		{
-				if (ar[i] == br[j]) 
-				{
-					cr[i] = 101;
-					break;
-				}
-				else if (ar[i] != br[j]) cr[i] = ar[i];
-		}
-	cout << "\nRemove repeats\n";
-		sort(cr, cr + SIZE);
-		for (int i = 0; i < SIZE; i++)
-		{
-			if (cr[i] == cr[i - 1]) cr[i] = 101;
-		}
-
-		sort(cr, cr + SIZE);
-		for (int i = 0; i < SIZE; i++)
-		{
-			if (cr[i] == 101) cr[i] = -1;
-			cout << cr[i] << ", ";
-		}
-		cout << "\nFinal\n";
-}
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 50;
+//	const int KING = 100;
+//	int ar[SIZE];
+//	int br[SIZE];
+//	int i = 0;
+//	int j = 0;
+//	int l = 0;
+//	int cr[SIZE];
+//	cout << "Original array M\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		ar[i] = rand() % 100;
+//		cout << ar[i] << ", ";
+//	}
+//	cout << "\nOriginal N\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		br[i] = rand() % 100;
+//		cout << br[i] << ", ";
+//	}
+//	sort(ar, ar + SIZE);
+//	cout << "\nSorted array M\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		cout << ar[i] << ", ";
+//	}
+//	sort(br, br + SIZE);
+//	cout << "\nSorted array N\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		cout << br[i] << ", ";
+//	}
+//	cout << "\nCombined in one array Z\n";
+//	for (int i = 0; i < SIZE; i++)
+//			for (int j = 0; j < SIZE; j++)
+//		{
+//				if (ar[i] == br[j]) 
+//				{
+//					cr[i] = 101;
+//					break;
+//				}
+//				else if (ar[i] != br[j]) cr[i] = ar[i];
+//		}
+//	cout << "\nRemove repeats\n";
+//		sort(cr, cr + SIZE);
+//		for (int i = 0; i < SIZE; i++)
+//		{
+//			if (cr[i] == cr[i - 1]) cr[i] = 101;
+//		}
+//		sort(cr, cr + SIZE);
+//		for (int i = 0; i < SIZE; i++)
+//		{
+//			if (cr[i] == 101) cr[i] = -1;
+//			cout << cr[i] << ", ";
+//		}
+//		cout << "\nFinal\n";
+//}
 
 
 //4. Реализовать программу - лотерею. Программа загадывает 5 случайных неповторяющихся чисел в диапазоне
@@ -199,6 +197,27 @@ int main()
 //8. Осуществить циклический сдвиг массива на N элементов. Направление сдвига указывает пользователь
 //(например, массив 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 при циклическом сдвиге вправо на 3 элемента примет
 //	вид 7, 8, 9, 0, 1, 2, 3, 4, 5, 6).
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	const int SIZE = 10;
+	int num[SIZE] = { 0, 1, 2, 3, 4, 5 , 6, 7, 8, 9 };
+	int shift[SIZE];
+	int s = 0;
+	cin >> s;
+	s = SIZE - s;
+	
+	for (int i = 0; i < SIZE; i++)
+	{
+		shift[i] = num[s%SIZE];
+		s++;
+		cout << shift[i] << ", ";
+	}
+	cout << "\n";
+}
 
 //9. Создать массив строк на 4000 элементов.Заполнить его римскими числами от 1 до 3999, показать на экране всe элементы.
 
