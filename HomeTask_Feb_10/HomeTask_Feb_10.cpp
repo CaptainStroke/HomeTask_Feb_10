@@ -163,36 +163,6 @@
 // с клавиатуры.Назначить призы за совпадения.Например, если пользователь угадал три числа - приз 100 кредитов,
 //если 4 - 500 кредитов, если 5 – 2500 кредитов.И в целом, какова вероятность того, что пользователь угадает
 //все 5 чисел ?
-
-//#include <iostream>
-//#include <algorithm>
-//#include <ctime>
-//using namespace std;
-//int main()
-//{
-//	const int SIZE = 5;
-//	int win[SIZE];
-//	int tik[SIZE] = { 7, 10, 13, 20, 37 };
-//	const int BAG = 42;
-//	int lot[SIZE];
-//
-//	for (int i = 0; i < SIZE; i++)
-//	{
-//		for (int j = 0, n = 0; j < SIZE; j++)
-//		{
-//			lot[i] = rand() % 42 + 1;
-//			if (lot[i] != win[j]) n++;
-//			cout << lot[i] << " - i =  " << i << " - n = " << n << endl;
-//
-//		}
-//		cout << "\n";
-//	}
-//		
-//}
-
-//5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
-//Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
-//ни отрицательными числами.Вывести найденный фрагмент.
 //
 #include <iostream>
 #include <algorithm>
@@ -200,27 +170,72 @@
 using namespace std;
 int main()
 {
-	srand(time(NULL));
-	const int SIZE = 20;
-	int num[SIZE];
+	//srand(time(NULL));
+	const int SIZE = 5;
+	int win[SIZE];
+	int tik[SIZE] = { 21, 18, 13, 20, 15 };
+	const int BAG = 42;
+	int lot[SIZE];
 	int n = 0;
-	int max = 0;
-	cout << "Original\n";
+	cout << "\nOriginal. Your ticket\n";
 	for (int i = 0; i < SIZE; i++)
 	{
-		num[i] = rand() % 31 - 10;
-		cout << num[i] << ", ";
+		cout << tik[i] << ", ";
+
 	}
-	cout << "\n";
+	cout << "\nOriginal. Lottery numbers\n";
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (num[i] > 0) ++n, cout << num[i] << " - " << n << "\n";
-		if (num[i] <= 0) n = 0;
-		if (max < n) max = n;
-		
+		win[i] = rand() % 41 + 1;
+		cout << win[i] << ", ";
+
 	}
-	cout << "\nLongest sequence - " << max << "\n";
-}
+//	cout << "\nLooking for similarities\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		for (int j = 0; j < SIZE; j++)
+//		{
+//			if(win[i] == tik[j]) n++, cout << win[i] << ", ";
+//			// cout << win[i] << ", ";
+//
+//		}
+//		
+//
+//	}
+//	cout << "\nNumber for lucky numbers - " << n;
+//}
+
+//5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
+//Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
+//ни отрицательными числами.Вывести найденный фрагмент.
+//
+//#include <iostream>
+//#include <algorithm>
+//#include <ctime>
+//using namespace std;
+//int main()
+//{
+//	srand(time(NULL));
+//	const int SIZE = 20;
+//	int num[SIZE];
+//	int n = 0;
+//	int max = 0;
+//	cout << "Original\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		num[i] = rand() % 31 - 10;
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		if (num[i] > 0) ++n, cout << num[i] << " - " << n << "\n";
+//		if (num[i] <= 0) n = 0;
+//		if (max < n) max = n;
+//		
+//	}
+//	cout << "\nLongest sequence - " << max << "\n";
+//}
 
 //6. Создать массив из 10 вещественных чисел. Преобразовать массив так, чтобы сначала шли все элементы с вещественной 
 //частью, а потом без нее.
@@ -260,7 +275,7 @@ int main()
 
 //7. Создать массив из 10 целых случайных чисел в диапазоне от 0 до 100. Найти элемент, максимально близкий
 //к среднему арифметическому значений массива.
-
+//
 //#include <iostream>
 //#include <algorithm>
 //#include <ctime>
@@ -291,7 +306,7 @@ int main()
 //	for (int i = 0; i < SIZE; i++)
 //	{
 //		dif = abs(float(num[i] - med));
-//		if (min > dif)  min = dif, cout <<  "Winner - " << num[i] << "\n";
+//		if (min > dif)  min = dif; cout << "Winner - " << num[i] << "\n";
 //		//cout << num[i] << ", ";
 //	}
 //	cout << "\n";
