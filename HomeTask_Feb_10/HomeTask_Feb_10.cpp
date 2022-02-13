@@ -193,70 +193,98 @@
 //5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
 //Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
 //ни отрицательными числами.Вывести найденный фрагмент.
+//
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 20;
+//	int num[SIZE];
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		num[i] = rand() % 31 - 10;
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\n";
+//}
 
 //6. Создать массив из 10 вещественных чисел. Преобразовать массив так, чтобы сначала шли все элементы с вещественной 
 //частью, а потом без нее.
 
-#include <iostream>
-#include <algorithm>
-using namespace std;
-int main()
-{
-	const int SIZE = 10;
-	float num[SIZE] = { 3, 3.14, 45, 54.56, 234.12, 1, 5 , 32.34 , 76.97, 90.74};
-	cout << "Original\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << num[i] << ", ";
-
-	}
-	cout << "\nTurning numbers with real purt into minus\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (num[i] != int(num[i])) num[i] = num[i] * (-1);
-		cout << num[i] << ", ";
-	}
-	cout << "\nMoving minus to left part\n";
-	sort(num, num + SIZE);
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << num[i] << ", ";
-	}
-	cout << "\nTurning Real to positives\n";
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (num[i] < 0 ) num[i] = num[i] * (-1);
-		cout << num[i] << ", ";
-	}
-	cout << "\nMoving minus to left part\n";
-
-}
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 10;
+//	float num[SIZE] = { 3, 3.14, 45, 54.56, 234.12, 1, 5 , 32.34 , 76.97, 90.74};
+//	cout << "Original\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\nTurning numbers with real purt into minus\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		if (num[i] != int(num[i])) num[i] = num[i] * (-1);
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\nMoving minus to left part\n";
+//	sort(num, num + SIZE);
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\nTurning Real to positives\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		if (num[i] < 0 ) num[i] = num[i] * (-1);
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\nMoving minus to left part\n";
+//}
 
 //7. Создать массив из 10 целых случайных чисел в диапазоне от 0 до 100. Найти элемент, максимально близкий
 //к среднему арифметическому значений массива.
 
-//#include <iostream>
-//#include <algorithm>
-//using namespace std;
-//int main ()
-//{
-//	const int SIZE = 10;
-//	int num[SIZE];
-//	int sum = 0;
-//	int n = 0;
-//	for (int i = 0; i < SIZE; i++)
-//	{
-//		num[i] = rand() % 101;
-//		cout << num[i] << ", ";
-//	}
-//	cout << "\n";
-//	for (int i = 0; i < SIZE; i++)
-//	{
-//		sum += num[i];
-//		cout << num [i] << ", ";
-//	}
-//	cout << "\n" << sum << ". Mediana - " << float(sum )/ float(SIZE);
-//}
+#include <iostream>
+#include <algorithm>
+#include <ctime>
+using namespace std;
+int main ()
+{
+	srand(time(NULL));
+	const int SIZE = 100;
+	int num[SIZE];
+	int sum = 0; // all numbers
+	float dif = 0; // ariphmetic - number = difference 
+	float min = 100;
+	float med = sum / SIZE; // ariphmetic div
+	int n = 0;
+	
+	for (int i = 0; i < SIZE; i++)
+	{
+		num[i] = rand() % 101;
+		cout << num[i] << ", ";
+	}
+	cout << "\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		sum += num[i];
+		//cout << num [i] << ", ";
+	}
+	med = float(sum) / float(SIZE);
+	cout << "\nAll numbers = " << sum << ". Mediana - " << med << "\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		dif = abs(float(num[i] - med));
+		if (min > dif)  min = dif, cout <<  "Winner - " << num[i] << "\n";
+		//cout << num[i] << ", ";
+	}
+	cout << "\n";
+
+}
 
 //8. Осуществить циклический сдвиг массива на N элементов. Направление сдвига указывает пользователь
 //(например, массив 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 при циклическом сдвиге вправо на 3 элемента примет
