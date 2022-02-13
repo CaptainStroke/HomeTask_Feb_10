@@ -171,32 +171,31 @@
 //int main()
 //{
 //	const int SIZE = 5;
+//	int win[SIZE];
+//	int tik[SIZE] = { 7, 10, 13, 20, 37 };
+//	const int BAG = 42;
 //	int lot[SIZE];
+//
 //	for (int i = 0; i < SIZE; i++)
 //	{
-//		cin >> lot[i];
-//		sort(lot, lot + SIZE);
-//		if (lot[i] == lot[i - 1]);
-//		
+//		for (int j = 0, n = 0; j < SIZE; j++)
+//		{
+//			lot[i] = rand() % 42 + 1;
+//			if (lot[i] != win[j]) n++;
+//			cout << lot[i] << " - i =  " << i << " - n = " << n << endl;
 //
-//		cout << lot[i] << "' ";
+//		}
+//		cout << "\n";
 //	}
-//
+//		
 //}
 
 //5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
 //Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
 //ни отрицательными числами.Вывести найденный фрагмент.
 
-//6. Создать массив из 10 вещественных чисел.Преобразовать массив так, чтобы сначала шли все элементы с вещественной 
+//6. Создать массив из 10 вещественных чисел. Преобразовать массив так, чтобы сначала шли все элементы с вещественной 
 //частью, а потом без нее.
-
-//7. Создать массив из 10 целых случайных чисел в диапазоне от 0 до 100. Найти элемент, максимально близкий
-//к среднему арифметическому значений массива.
-
-//8. Осуществить циклический сдвиг массива на N элементов. Направление сдвига указывает пользователь
-//(например, массив 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 при циклическом сдвиге вправо на 3 элемента примет
-//	вид 7, 8, 9, 0, 1, 2, 3, 4, 5, 6).
 
 #include <iostream>
 #include <algorithm>
@@ -204,20 +203,84 @@ using namespace std;
 int main()
 {
 	const int SIZE = 10;
-	int num[SIZE] = { 0, 1, 2, 3, 4, 5 , 6, 7, 8, 9 };
-	int shift[SIZE];
-	int s = 0;
-	cin >> s;
-	s = SIZE - s;
-	
+	float num[SIZE] = { 3, 3.14, 45, 54.56, 234.12, 1, 5 , 32.34 , 76.97, 90.74};
+	cout << "Original\n";
 	for (int i = 0; i < SIZE; i++)
 	{
-		shift[i] = num[s%SIZE];
-		s++;
-		cout << shift[i] << ", ";
+		cout << num[i] << ", ";
+
 	}
-	cout << "\n";
+	cout << "\nTurning numbers with real purt into minus\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (num[i] != int(num[i])) num[i] = num[i] * (-1);
+		cout << num[i] << ", ";
+	}
+	cout << "\nMoving minus to left part\n";
+	sort(num, num + SIZE);
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << num[i] << ", ";
+	}
+	cout << "\nTurning Real to positives\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (num[i] < 0 ) num[i] = num[i] * (-1);
+		cout << num[i] << ", ";
+	}
+	cout << "\nMoving minus to left part\n";
+
 }
+
+//7. Создать массив из 10 целых случайных чисел в диапазоне от 0 до 100. Найти элемент, максимально близкий
+//к среднему арифметическому значений массива.
+
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main ()
+//{
+//	const int SIZE = 10;
+//	int num[SIZE];
+//	int sum = 0;
+//	int n = 0;
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		num[i] = rand() % 101;
+//		cout << num[i] << ", ";
+//	}
+//	cout << "\n";
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		sum += num[i];
+//		cout << num [i] << ", ";
+//	}
+//	cout << "\n" << sum << ". Mediana - " << float(sum )/ float(SIZE);
+//}
+
+//8. Осуществить циклический сдвиг массива на N элементов. Направление сдвига указывает пользователь
+//(например, массив 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 при циклическом сдвиге вправо на 3 элемента примет
+//	вид 7, 8, 9, 0, 1, 2, 3, 4, 5, 6).
+
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main()
+//{
+//	const int SIZE = 10;
+//	int num[SIZE] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//	int shift[SIZE];
+//	int s = 0;
+//	cin >> s;
+//	s = SIZE - s;
+//	for (int i = 0; i < SIZE; i++)
+//	{
+//		shift[i] = num[s%SIZE];
+//		s++;
+//		cout << shift[i] << ", ";
+//	}
+//	cout << "\n";
+//}
 
 //9. Создать массив строк на 4000 элементов.Заполнить его римскими числами от 1 до 3999, показать на экране всe элементы.
 
