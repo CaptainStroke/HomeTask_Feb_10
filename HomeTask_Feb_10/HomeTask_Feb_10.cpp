@@ -165,45 +165,57 @@
 //все 5 чисел ?
 //
 #include <iostream>
-#include <algorithm>
 #include <ctime>
 using namespace std;
 int main()
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 	const int SIZE = 5;
-	int win[SIZE];
+	int number[SIZE];
+	for (int i = 0; i < SIZE; i++)
+	{
+		number[i] = rand() % 42 + 1;
+		for (int j = 0; j < i; j++)
+		{
+			if (number[j] == number[i])
+			{
+				i--;
+				break;
+			}
+		}
+	}
+
+	cout << "\nTry your luck in lottery. Enter 5 numbers between 1 and 42";
 	int tik[SIZE] = { 21, 18, 13, 20, 15 };
-	const int BAG = 42;
-	int lot[SIZE];
 	int n = 0;
 	cout << "\nOriginal. Your ticket\n";
 	for (int i = 0; i < SIZE; i++)
 	{
-		cout << tik[i] << ", ";
-
+		//cin >> tik[i];
 	}
-	cout << "\nOriginal. Lottery numbers\n";
 	for (int i = 0; i < SIZE; i++)
 	{
-		win[i] = rand() % 41 + 1;
-		cout << win[i] << ", ";
-
+		cout << tik[i] << ", ";
 	}
-//	cout << "\nLooking for similarities\n";
-//	for (int i = 0; i < SIZE; i++)
-//	{
-//		for (int j = 0; j < SIZE; j++)
-//		{
-//			if(win[i] == tik[j]) n++, cout << win[i] << ", ";
-//			// cout << win[i] << ", ";
-//
-//		}
-//		
-//
-//	}
-//	cout << "\nNumber for lucky numbers - " << n;
-//}
+	cout << "\nLottery numbers\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << number[i] << ", ";
+	}
+	cout << "\nLooking for similarities\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+		{
+			if (number[i] == tik[j]) n++, cout << number[i] << ", ";
+		}
+	}
+	cout << "\nNumber for lucky numbers - " << n << endl;
+	if (n == 5) cout << "You returned 2500 credits\n";
+	else if (n == 4) cout << "You returned 500 credits\n";
+	else if (n == 3) cout << "You returned 100 credits\n";
+	else cout << "Yuo got one more credit. Don't play lottery\n";
+}
 
 //5. Создать массив из 20 случайных чисел в диапазоне от - 10 до 20.
 //Определить максимальное количество подряд идущих положительных элементов, не прерываемых ни нулями,
@@ -231,10 +243,11 @@ int main()
 //	{
 //		if (num[i] > 0) ++n, cout << num[i] << " - " << n << "\n";
 //		if (num[i] <= 0) n = 0;
-//		if (max < n) max = n;
+//		if (max < n) max = n , cout << i+1 << " index ";
 //		
 //	}
 //	cout << "\nLongest sequence - " << max << "\n";
+//
 //}
 
 //6. Создать массив из 10 вещественных чисел. Преобразовать массив так, чтобы сначала шли все элементы с вещественной 
